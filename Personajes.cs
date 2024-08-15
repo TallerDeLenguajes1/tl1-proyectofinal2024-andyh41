@@ -1,3 +1,5 @@
+using System.Collections.Specialized;
+
 namespace Personajes
 {
 
@@ -20,13 +22,11 @@ namespace Personajes
     {
         private string nombre;
         private string raza;
-        private string descripcion;
-
+        private string poderespecial;
 
         public string Nombre { get => nombre; set => nombre = value; }
         public string Raza { get => raza; set => raza = value; }
-        public string Descripcion { get => descripcion; set => descripcion = value; }
-
+        public string Poderespecial { get => poderespecial; set => poderespecial = value; }
     }
 
     public class Caracteristicas
