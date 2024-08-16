@@ -1,9 +1,10 @@
 
-using MensajesPorPantalla;
-using EspacioPersonajes;
+//using MensajesPorPantalla;
+using Personajes;
 using EspacioPelea;
-using EspacioHistorial;
-using EspacioAyuda;
+using Historial;
+using FabricaPersonajes;
+//using EspacioAyuda;
 
 namespace EspacioSeleccionDePersonaje
 {
@@ -12,7 +13,7 @@ namespace EspacioSeleccionDePersonaje
         public static async Task SelectorDePersonajes(List<Personaje> listaPersonajes)
         {
             Console.Clear();
-            Ayuda.IntroduccionJuego();
+            //Ayuda.IntroduccionJuego();
             await SelectorDePersonajeAsync(listaPersonajes);
 
         }
@@ -20,9 +21,9 @@ namespace EspacioSeleccionDePersonaje
         private static async Task SelectorDePersonajeAsync(List<Personaje> listaPersonajes)
         {
             int ID=0;
-            foreach (var personaje in lista)
+            foreach (var personaje in listaPersonajes)
             {
-                Fabrica.MostrarPersonaje(personaje,ID)
+                Fabrica.MostrarPersonaje(personaje,ID);
                ID++;
             }
 
@@ -31,7 +32,7 @@ namespace EspacioSeleccionDePersonaje
             do
             {
                 Console.WriteLine("Seleccione el Personaje con el que jugará (ID): ");
-                string Eleccion = Console.ReadLine();
+                string? Eleccion = Console.ReadLine();
                 control = int.TryParse(Eleccion, out elegido);
                 if (!control || elegido < 0 || elegido > 9)
                 {

@@ -18,27 +18,14 @@ namespace FabricaPersonajes
             nuevoPersonaje.Datos.Nombre= 
             nuevoPersonaje.Datos.Genero=
             nuevoPersonaje.Datos.Raza=
-            nuevoPersonaje.Datos.Poderespecial=
+            nuevoPersonaje.Datos.Poderespecial=Enum.GetName(typeof(Poderes), random.Next (1, Enum.GetNames(typeof(Poderes)).Length));
             return nuevoPersonaje;
         }
-        public static List<Personaje> CreacionPersonajes()
-        {   
-
-            var listaPersonajes = new List<Personaje>;
-            for (int i = 0; i < 10; i++)
-            {
-                Personaje personajeNuevo = this.CreacionPersonaje();
-                listaPersonajes.Add(personajeNuevo);
-            }
-            return listaPersonajes;
-        } 
 
      
         private static Random random = new Random();
         
-        public void MostrarPersonaje(Personaje personaje,int ID){
-            console.WriteLine("-------------------------------");
-            Console.WriteLine("ID: "+ ID);
+        public void MostrarPersonaje(Personaje personaje){
             Console.WriteLine("Nombre: "+personaje.Datos.Nombre);
             Console.WriteLine("Genero: "+personaje.Datos.Genero);
             Console.WriteLine("Raza: "+personaje.Datos.Raza);
@@ -47,11 +34,7 @@ namespace FabricaPersonajes
             Console.WriteLine("Salud: "+personaje.Caracteristicas.Salud);
             Console.WriteLine("Velocidad: "+personaje.Caracteristicas.Velocidad);
             Console.WriteLine("Resistencia: "+personaje.Caracteristicas.Resistencia);
-            console.WriteLine("-------------------------------");
         }
-
-        
     }
-
  
 }
