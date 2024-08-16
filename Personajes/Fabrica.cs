@@ -36,8 +36,9 @@ namespace FabricaPersonajes
      
         private static Random random = new Random();
         
-        public void MostrarPersonaje(Personaje personaje){
+        public void MostrarPersonaje(Personaje personaje,int ID){
             console.WriteLine("-------------------------------");
+            Console.WriteLine("ID: "+ ID);
             Console.WriteLine("Nombre: "+personaje.Datos.Nombre);
             Console.WriteLine("Genero: "+personaje.Datos.Genero);
             Console.WriteLine("Raza: "+personaje.Datos.Raza);

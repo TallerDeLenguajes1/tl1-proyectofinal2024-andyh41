@@ -2,7 +2,7 @@ using System;
 using MensajesPorPantalla;
 using EspacioJson;
 using EspacioPersonajes;
-using EspacioHistorial;
+using Historial;
 using EspacioSeleccionDePersonaje;
 
 namespace EspacioMenuPrincipal
@@ -26,7 +26,7 @@ namespace EspacioMenuPrincipal
                         await ComenzarJuego();
                         break;
                     case "2":
-                        VerHistorial();
+                        global::System.Object mostrarListado = HistorialGanadores.MostrarListado;
                         break;
                     case "3":
                         Console.WriteLine("Saliendo del programa...");
@@ -49,17 +49,16 @@ namespace EspacioMenuPrincipal
                 if (listaPersonajes.Count < 0)
                 {
                     Console.WriteLine("El archivo de personajes está vacío. Creando nuevos personajes...");
-                    await CargarDatos.CargandoPersonajes();
-                }else
-                {
-                    listaPersonajes = await PersonajesJson.RecargaDePersonajes(archivoPersonajes);
+                    listaPersonajes = Fabrica.CreacionPersonajes();
+                    PersonajesJson.GuardarPersonajes(listaPersonajes, archivoPersonajes);
                 }
                
             }else
             {
                 Console.WriteLine("No se encontró el archivo de personajes. Creando nuevo archivo...");
-                await CargarDatos.CargandoPersonajes();
-               listaPersonajes = PersonajesJson.LeerPersonajes(archivoPersonajes);
+                listaPersonajes = Fabrica.CreacionPersonajes();
+                PersonajesJson.GuardarPersonajes(listaPersonajes, archivoPersonajes);
+                listaPersonajes = PersonajesJson.LeerPersonajes(archivoPersonajes);
             }
 
 
@@ -67,21 +66,7 @@ namespace EspacioMenuPrincipal
             await Task.Delay(1000);
         }
 
-        private static void VerHistorial()
-        {
-            Console.Clear();
-            List<HistorialJson> historial = HistorialJson.LeerGanadores();
-            if (historial.Count > 0)
-            {
-                Mensajes.MostrarHistorial(historial);
-            }
-            else
-            {
-                Mensajes.MostrarMensaje("No hay historial de ganadores aun. \nComienza un nuevo juego para empezar a agregar a los ganadores del torneo!");
-            }
-            Console.WriteLine("Presione una tecla para volver al menú principal...");
-            Console.ReadKey(intercept: true);
-        }
+
     }
 
 }
