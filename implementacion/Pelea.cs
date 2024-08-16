@@ -1,9 +1,7 @@
-using EspacioHistorial;
-using EspacioPersonajes;
-using MensajesPorPantalla;
-using EspacioAsciiArt;
+using Historial;
+using Personajes;
+using Mensajes;
 using FinJuego;
-using EspacioAyuda;
 
 
 
@@ -26,7 +24,6 @@ namespace EspacioPelea
 
             bool resultado = Combate(listaPersonajes, PersonajeElegido, ronda);
             
-            AsciiArt.MsjeFin();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadKey(intercept: true);
             Console.Clear();

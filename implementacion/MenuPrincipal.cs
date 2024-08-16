@@ -1,9 +1,9 @@
 using System;
-using MensajesPorPantalla;
-using EspacioJson;
-using EspacioPersonajes;
+using Mensajes;
+using Json;
+using Personajes;
 using Historial;
-using EspacioSeleccionDePersonaje;
+using SeleccionDePersonaje;
 
 namespace EspacioMenuPrincipal
 {
@@ -11,6 +11,7 @@ namespace EspacioMenuPrincipal
     {
         public static async Task MostrarMenu()
         {
+            Mensajes. MostrarIntroduccion();
             await MostrarMenuPrincipal();
         }
         private static string archivoPersonajes = "Json/Personajes.json";

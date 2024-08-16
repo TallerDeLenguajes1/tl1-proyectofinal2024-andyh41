@@ -1,10 +1,9 @@
 
-//using MensajesPorPantalla;
+using Mensajes
 using Personajes;
 using EspacioPelea;
 using Historial;
 using FabricaPersonajes;
-//using EspacioAyuda;
 
 namespace EspacioSeleccionDePersonaje
 {

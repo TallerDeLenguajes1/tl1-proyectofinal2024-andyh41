@@ -1,8 +1,8 @@
-using EspacioPelea;
-using EspacioPersonajes;
-using EspacioHistorial;
-using EspacioMenuPrincipal;
-using MensajesPorPantalla;
+using Pelea;
+using Personajes;
+using Historial;
+using MenuPrincipal;
+using Mensajes;
 
 namespace FinJuego
 {
