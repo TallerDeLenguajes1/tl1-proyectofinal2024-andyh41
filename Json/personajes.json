@@ -1,0 +1,152 @@
+[
+  {
+    "Datos": {
+      "Nombre": "Chicha",
+      "Raza": "perro salchicha",
+      "Genero": "femenino",
+      "Poderespecial": "Aliento Podrido"
+    },
+    "Caracteristicas": {
+      "Fuerza": 65,
+      "Salud": 100,
+      "Velocidad": 75,
+      "Resistencia": 60
+    }
+  },
+
+  {
+    "Datos": {
+      "Nombre": "Zoe",
+      "Raza": "perro golden",
+      "Genero": "femenino",
+      "Poderespecial": "Panzaso Letal"
+    },
+    "Caracteristicas": {
+      "Fuerza": 90,
+      "Salud": 100,
+      "Velocidad": 50,
+      "Resistencia": 70
+    }
+  },
+  
+  {
+    "Datos": {
+      "Nombre": "Odie",
+      "Raza": "perro rescatado",
+      "Genero": "masculino",
+      "Poderespecial": "Ladrido Enzordecedor"
+    },
+    "Caracteristicas": {
+      "Fuerza": 70,
+      "Salud": 100,
+      "Velocidad": 80,
+      "Resistencia": 60
+    }
+  },
+  
+  {
+    "Datos": {
+      "Nombre": "Laika",
+      "Raza": "perro rescatado",
+      "Genero": "femenino",
+      "Poderespecial": "Ladrido Enzordecedor"
+    },
+    "Caracteristicas": {
+      "Fuerza": 75,
+      "Salud": 100,
+      "Velocidad": 60,
+      "Resistencia": 65
+    }
+  },
+  
+  {
+    "Datos": {
+      "Nombre": "Chola",
+      "Raza": "perro rescatado",
+      "Genero": "femenino",
+      "Poderespecial": "Aliento Podrido"
+    },
+    "Caracteristicas": {
+      "Fuerza": 65,
+      "Salud": 100,
+      "Velocidad": 65,
+      "Resistencia": 70
+    }
+  },
+  
+  {
+    "Datos": {
+      "Nombre": "Kiki",
+      "Raza": "gato blanco",
+      "Genero": "masculino",
+      "Poderespecial": "Garrita afilada"
+    },
+
+    "Caracteristicas": {
+      "Fuerza": 60,
+      "Salud": 100,
+      "Velocidad": 90,
+      "Resistencia": 60
+    }
+  },
+  
+  {
+    "Datos": {
+      "Nombre": "Holguita",
+      "Raza": "gato gris",
+      "Genero": "femenino",
+      "Poderespecial": "Panzaso Letal"
+    },
+    "Caracteristicas": {
+      "Fuerza": 60,
+      "Salud": 100,
+      "Velocidad": 85,
+      "Resistencia": 65
+    }
+  }, 
+
+  {
+    "Datos": {
+      "Nombre": "Joaquin",
+      "Raza": "gato vaca",
+      "Genero": "masculino",
+      "Poderespecial": "Maullido Cansador"
+    },
+    "Caracteristicas": {
+      "Fuerza": 65,
+      "Salud": 100,
+      "Velocidad": 85,
+      "Resistencia": 60
+    }
+  },
+  
+  {
+    "Datos": {
+      "Nombre": "Grisa",
+      "Raza": "perro rescatado",
+      "Genero": "femenino",
+      "Poderespecial": "Garrita afilada"
+    },
+    "Caracteristicas": {
+      "Fuerza": 75,
+      "Salud": 100,
+      "Velocidad": 65,
+      "Resistencia": 60
+    }
+  }, 
+
+  {
+    "Datos": {
+      "Nombre": "Negrito",
+      "Raza": "gato negro",
+      "Genero": "masculino",
+      "Poderespecial": "Maullido Cansador"
+    },
+    "Caracteristicas": {
+      "Fuerza": 65,
+      "Salud": 100,
+      "Velocidad": 85,
+      "Resistencia": 60
+    }
+  }   
+]
