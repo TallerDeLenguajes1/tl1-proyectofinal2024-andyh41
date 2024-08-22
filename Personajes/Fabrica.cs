@@ -22,6 +22,15 @@ namespace FabricaPersonajes
             return nuevoPersonaje;
         }
 
+        public static List<Personaje> CreacionPersonajes(){
+            var ListaP = new List<Personaje>();
+            for (int i = 0; i < 10; i++)
+            {
+                ListaP.Add(CreacionPersonaje());
+            }
+            return ListaP;
+        }
+
      
         private static Random random = new Random();
         

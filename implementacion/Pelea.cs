@@ -1,7 +1,8 @@
 using Historial;
 using Personajes;
-using Mensajes;
+using MensajesPorPantalla;
 using FinJuego;
+using Api;
 
 
 
@@ -27,7 +28,7 @@ namespace EspacioPelea
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadKey(intercept: true);
             Console.Clear();
-            await FinalDeJuego.Final(resultado);
+            await FinalDeJuego.Final(resultado, PersonajeElegido);
             
         }
 
@@ -36,21 +37,20 @@ namespace EspacioPelea
         {
             while (listaPersonajes.Count > 0 & PersonajeElegido.Caracteristicas.Salud>0)
             {
-                PersonajeElegido.Salud = 100;
+                PersonajeElegido.Caracteristicas.Salud = 100;
                 if (ronda == 9) break;
                 Mensajes.MostrarMensajeRonda(ronda+1);  
-
                 int IndiceContrincante = random.Next(0, listaPersonajes.Count);
                 var Contrincante = listaPersonajes[IndiceContrincante];
                 listaPersonajes.Remove(Contrincante);
 
-                Console.WriteLine($"{PersonajeElegido.Dato.Nombre} {PersonajeElegido.Dato.Raza} VS {Contrincante.Dato.Nombre} {Contrincante.Dato.Raza})");
+                Console.WriteLine($"{PersonajeElegido.Datos.Nombre} {PersonajeElegido.Datos.Raza} VS {Contrincante.Datos.Nombre} {Contrincante.Datos.Raza})");
                 Console.WriteLine("==============================================================================================================");
                 
-                Ganador = DinamicaDePelea(PersonajeElegido, Contrincante);
+                Personaje Ganador = DinamicaDePelea(PersonajeElegido, Contrincante);
 
                 Console.WriteLine();
-                Console.WriteLine(Ganador.Nombre.ToUpper() + " GANA ESTA RONDA!");
+                Console.WriteLine(Ganador.Datos.Nombre.ToUpper() + " GANA ESTA RONDA!");
                 MejorarEstadisticas(Ganador);
                 
                
@@ -68,7 +68,7 @@ namespace EspacioPelea
                 ronda++;
             }
 
-            if (PersonajeElegido.Salud>0)
+            if (PersonajeElegido.Caracteristicas.Salud>0)
             {
                 return true;
             }else
@@ -85,7 +85,7 @@ namespace EspacioPelea
             int turno = random.Next(0, 2);
             bool primeraVuelta = true;
 
-            while (prota.Datos.Salud > 0 && contrincante.Datos.Salud > 0)
+            while (prota.Caracteristicas.Salud > 0 && contrincante.Caracteristicas.Salud > 0)
             {
                 if (turno == 1)
                 {
@@ -93,7 +93,7 @@ namespace EspacioPelea
                     {
                         Console.WriteLine($"COMIENZA ATACANDO: {prota.Datos.Nombre}");
                     }
-                    if (dados>3)
+                    if (Tirardados.TraerInfoAPI.Value>3)
                     {
                         AtaqueEspecial(prota, contrincante);
                         contrincante.Caracteristicas.Resistencia-=5;
@@ -108,9 +108,9 @@ namespace EspacioPelea
                 {
                     if (primeraVuelta)
                     {
-                        Console.WriteLine($"COMIENZA ATACANDO: {contrincante.Nombre}");
+                        Console.WriteLine($"COMIENZA ATACANDO: {contrincante.Datos.Nombre}");
                     }
-                    if (dados>3)
+                    if (Tirardados.TraerInfoAPI.Value>3)
                     {
                         AtaqueEspecial(contrincante, prota);
                         prota.Caracteristicas.Resistencia-=2;
@@ -123,7 +123,7 @@ namespace EspacioPelea
                 primeraVuelta = false;
             }
 
-            return prota.Datos.Salud > 0 ? prota : contrincante;
+            return prota.Caracteristicas.Salud > 0 ? prota : contrincante;
         }
 
 
@@ -146,11 +146,11 @@ namespace EspacioPelea
         {
             int daño = Daño(ataca)+15;
             defiende.Caracteristicas.Salud = defiende.Caracteristicas.Salud - daño;
-            if (defiende.Salud < 0)
+            if (defiende.Caracteristicas.Salud < 0)
             {
-                defiende.Salud = 0;
+                defiende.Caracteristicas.Salud = 0;
             }
-            Console.WriteLine($"\n ({ataca.Datos.Nombre}) ataca a ({defiende.Datos.Nombre}) con ({ataca.Datos.PoderEspecial}) y causa {daño} puntos de daño. ");
+            Console.WriteLine($"\n ({ataca.Datos.Nombre}) ataca a ({defiende.Datos.Nombre}) con ({ataca.Datos.Poderespecial}) y causa {daño} puntos de daño. ");
             Console.WriteLine($"Salud restante de {defiende.Datos.Nombre}: {defiende.Caracteristicas.Salud}");
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------------");
         }
@@ -175,7 +175,7 @@ namespace EspacioPelea
 
         private static void MejorarEstadisticas(Personaje personaje)
         {
-            personaje.Fuerza += random.Next(1, 3);
+            personaje.Caracteristicas.Fuerza += random.Next(1, 3);
             personaje.Caracteristicas.Resistencia += random.Next(1, 3);
             
             Console.WriteLine($"{personaje.Datos.Nombre} ha mejorado sus estadísticas!");

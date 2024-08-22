@@ -1,6 +1,5 @@
-using EspacioPersonajes;
-using EspacioApi;
-using EspacioFabricaDePersonajes;
+using Personajes;
+using FabricaPersonajes;
 using System.Text.Json;
 using Microsoft.VisualBasic;
 

@@ -1,6 +1,5 @@
 using System.Text.Json;
-using Animaciones;
-using MenuPrincipal;
+using EspacioMenuPrincipal;
 using Personajes;
 
 namespace Historial
@@ -20,7 +19,7 @@ namespace Historial
             GuardarHistorial(listaHistorial);
         }
 
-        public static void MostrarListado(List<HistorialGanadores> listado)
+        public static async void MostrarListado(List<HistorialGanadores> listado)
         {
             Console.WriteLine("GANADORES DEL TORNEO");
             Console.WriteLine();
@@ -32,19 +31,19 @@ namespace Historial
             {
                 foreach (var ganador in listado)
                 {
-                    Animaciones.misAnimaciones.AnimacionDeCargaHistorial();
+                    
                     Console.WriteLine("\r" + ganador.Hora + ": " + ganador.Ganador.Datos.Nombre);
                 }
             }
 
             Console.WriteLine();
-            misAnimaciones.LimpiarBuffer();
+            Console.Clear();
             string frase = "Pulse una tecla regresar al menu...";
             Console.WriteLine(frase);
             Console.CursorVisible = false;
             Console.ReadKey(true);
-            misAnimaciones.LimpiarBuffer();
-            Menu.MostrarMenuPrincipal(listado);
+            Console.Clear();
+            await MenuPrincipal.MostrarMenuPrincipal();
         }
 
         public static List<HistorialGanadores> CargarHistorialDesdeArchivo()
@@ -77,8 +76,5 @@ namespace Historial
             Hora = hora;
         }
 
-        // public HistorialGanadores()
-        // {
-        // }
     }
 }

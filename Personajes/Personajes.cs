@@ -28,10 +28,10 @@ namespace Personajes
 
     public class Datos
     {
-        private string? nombre;
-        private string? raza;
-        private string? poderespecial;
-        private string? genero;
+        private string nombre;
+        private string raza;
+        private string poderespecial;
+        private string genero;
 
         public string Nombre { get => nombre; set => nombre = value; }
         public string Raza { get => raza; set => raza = value; }

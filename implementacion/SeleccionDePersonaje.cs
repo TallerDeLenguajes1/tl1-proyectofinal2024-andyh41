@@ -1,5 +1,5 @@
 
-using Mensajes
+using MensajesPorPantalla;
 using Personajes;
 using EspacioPelea;
 using Historial;
@@ -22,7 +22,7 @@ namespace EspacioSeleccionDePersonaje
             int ID=0;
             foreach (var personaje in listaPersonajes)
             {
-                Fabrica.MostrarPersonaje(personaje,ID);
+                Fabrica.MostrarPersonaje(personaje,ID);// arreglar id
                ID++;
             }
 
@@ -31,7 +31,7 @@ namespace EspacioSeleccionDePersonaje
             do
             {
                 Console.WriteLine("Seleccione el Personaje con el que jugará (ID): ");
-                string? Eleccion = Console.ReadLine();
+                string Eleccion = Console.ReadLine();
                 control = int.TryParse(Eleccion, out elegido);
                 if (!control || elegido < 0 || elegido > 9)
                 {

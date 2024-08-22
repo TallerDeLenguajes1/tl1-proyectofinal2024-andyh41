@@ -1,9 +1,10 @@
 using System;
-using Mensajes;
-using Json;
+using MensajesPorPantalla;
+using EspacioJson;
 using Personajes;
 using Historial;
-using SeleccionDePersonaje;
+using EspacioSeleccionDePersonaje;
+using FabricaPersonajes;
 
 namespace EspacioMenuPrincipal
 {
@@ -15,7 +16,7 @@ namespace EspacioMenuPrincipal
             await MostrarMenuPrincipal();
         }
         private static string archivoPersonajes = "Json/Personajes.json";
-        private static async Task MostrarMenuPrincipal()
+        public static async Task<object> MostrarMenuPrincipal()
         {
             while (true)
             {
@@ -27,7 +28,7 @@ namespace EspacioMenuPrincipal
                         await ComenzarJuego();
                         break;
                     case "2":
-                        global::System.Object mostrarListado = HistorialGanadores.MostrarListado;
+                        HistorialGanadores.MostrarListado(/*pasar lista de historial*/);
                         break;
                     case "3":
                         Console.WriteLine("Saliendo del programa...");

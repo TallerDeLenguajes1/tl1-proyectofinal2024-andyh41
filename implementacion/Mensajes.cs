@@ -1,6 +1,6 @@
 using Personajes;
-using FabricaDePersonajes;
-using Json;
+using FabricaPersonajes;
+using EspacioJson;
 using Historial;
 namespace MensajesPorPantalla
 {
@@ -10,7 +10,6 @@ namespace MensajesPorPantalla
         {
             Console.Clear();
             Console.WriteLine("========================================================================================================================");
-            AsciiArt.Titulo();
             Console.WriteLine("========================================================================================================================");
             Console.WriteLine();
             Console.WriteLine("Eres una mascota en una casa llena de animalitos.");
@@ -30,7 +29,7 @@ namespace MensajesPorPantalla
             Console.WriteLine("=================================================================================================================================");
             Console.WriteLine("                      ¡GANADOR!                      ");
             Console.WriteLine("=================================================================================================================================");
-            Console.WriteLine($" ¡{ganador.Nombre.ToUpper()} Gano la pelea por el pollito. ¡Felicidades! y que lo disfrutes");    ");
+            Console.WriteLine($" ¡{ganador.Datos.Nombre.ToUpper()} Gano la pelea por el pollito. ¡Felicidades! y que lo disfrutes");
             Console.WriteLine("=================================================================================================================================");
             Console.WriteLine();
            
