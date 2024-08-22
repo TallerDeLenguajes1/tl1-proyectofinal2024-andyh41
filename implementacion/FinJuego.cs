@@ -17,7 +17,7 @@ namespace FinJuego
                 Mensajes.MostrarMensajeGanador(Ganador);
                 await Task.Delay(500);
                 Console.WriteLine("Sus estadísticas finales son:");
-                Fabrica.MostrarPersonaje(Ganador,id);
+                Fabrica.MostrarPersonaje(Ganador);
                 // Añadir al historial de ganadores
                 var Historial = HistorialGanadores.CargarHistorialDesdeArchivo();
                 HistorialGanadores.CargarHistorial(Ganador, Historial);

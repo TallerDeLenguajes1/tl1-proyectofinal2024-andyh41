@@ -1,12 +1,13 @@
 using System.Text.Json;
 using Microsoft.VisualBasic;
 using System.Text.Json.Serialization;
+using System.Runtime.CompilerServices;
 
 namespace Api
 {
     class Tirardados
     {
-        public static async Task<Tirar> TraerInfoAPI() 
+        public static async Task<int> TraerInfoAPI() 
         {
             try
             {
@@ -16,18 +17,21 @@ namespace Api
                 respuesta.EnsureSuccessStatusCode();
 
                 string responseBody = await respuesta.Content.ReadAsStringAsync();
-                var Tirar = JsonSerializer.Deserialize<Tirar>(responseBody, new JsonSerializerOptions {PropertyNameCaseInsensitive = true});
+                var Tirados = JsonSerializer.Deserialize<List<Tirar>>(responseBody, new JsonSerializerOptions {PropertyNameCaseInsensitive = true});
     
-                if (Tirar != null)
+                int resultado=0;
+                foreach (var eldado in Tirados)
                 {
-                    return Tirar;
+                   resultado = eldado.Value;
+                   
                 }
+                return resultado;
                 
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex}");
-                return null;
+                return 0;
             }
 
         }
