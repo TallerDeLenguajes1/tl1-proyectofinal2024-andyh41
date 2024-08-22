@@ -19,11 +19,12 @@ namespace EspacioSeleccionDePersonaje
       
         private static async Task SelectorDePersonajeAsync(List<Personaje> listaPersonajes)
         {
-            int ID=0;
+            
             foreach (var personaje in listaPersonajes)
             {
-                Fabrica.MostrarPersonaje(personaje,ID);// arreglar id
-               ID++;
+                
+                Fabrica.MostrarPersonaje(personaje);
+            
             }
 
             int elegido;

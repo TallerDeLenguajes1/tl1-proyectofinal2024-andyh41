@@ -28,10 +28,12 @@ namespace EspacioMenuPrincipal
                         await ComenzarJuego();
                         break;
                     case "2":
-                        HistorialGanadores.MostrarListado(/*pasar lista de historial*/);
+                        HistorialGanadores.MostrarListado();
                         break;
                     case "3":
                         Console.WriteLine("Saliendo del programa...");
+                        Thread.Sleep(3000); 
+                        Console.Clear();
                         return;
                     default:
                         Console.WriteLine("Opción no válida. Inténtelo de nuevo.");
@@ -57,7 +59,7 @@ namespace EspacioMenuPrincipal
                
             }else
             {
-                Console.WriteLine("No se encontró el archivo de personajes. Creando nuevo archivo...");
+                Console.WriteLine("Creando nuevo archivo...");
                 listaPersonajes = Fabrica.CreacionPersonajes();
                 PersonajesJson.GuardarPersonajes(listaPersonajes, archivoPersonajes);
                 listaPersonajes = PersonajesJson.LeerPersonajes(archivoPersonajes);

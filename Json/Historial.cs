@@ -19,8 +19,11 @@ namespace Historial
             GuardarHistorial(listaHistorial);
         }
 
-        public static async void MostrarListado(List<HistorialGanadores> listado)
+        public static async void MostrarListado()
         {
+            
+            var listado = CargarHistorialDesdeArchivo();
+
             Console.WriteLine("GANADORES DEL TORNEO");
             Console.WriteLine();
             if (listado.Count == 0)
@@ -56,6 +59,7 @@ namespace Historial
             string json = File.ReadAllText(nombreArchivo);
             return JsonSerializer.Deserialize<List<HistorialGanadores>>(json);
         }
+
 
         private static void GuardarHistorial(List<HistorialGanadores> listaHistorial)
         {

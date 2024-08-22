@@ -80,7 +80,7 @@ namespace EspacioPelea
 
 
 
-        private static async Personaje DinamicaDePelea(Personaje prota, Personaje contrincante)
+        private static Personaje DinamicaDePelea(Personaje prota, Personaje contrincante)
         {
             int turno = random.Next(0, 2);
             bool primeraVuelta = true;
@@ -93,8 +93,8 @@ namespace EspacioPelea
                     {
                         Console.WriteLine($"COMIENZA ATACANDO: {prota.Datos.Nombre}");
                     }
-                
-                    if (Tirardados.TraerInfoAPI().GetAwaiter().getResult() > 3)
+
+                    if (Tirardados.TraerInfoAPI().GetAwaiter().GetResult() > 3)
                     {
                         AtaqueEspecial(prota, contrincante);
                         contrincante.Caracteristicas.Resistencia -= 5;
@@ -112,7 +112,7 @@ namespace EspacioPelea
                     {
                         Console.WriteLine($"COMIENZA ATACANDO: {contrincante.Datos.Nombre}");
                     }
-                    if (Tirardados.TraerInfoAPI().GetAwaiter().getResult() > 3)
+                    if (Tirardados.TraerInfoAPI().GetAwaiter().GetResult() > 3)
                     {
                         AtaqueEspecial(contrincante, prota);
                         prota.Caracteristicas.Resistencia -= 2;

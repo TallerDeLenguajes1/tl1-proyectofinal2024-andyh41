@@ -21,11 +21,10 @@ namespace FinJuego
                 // Añadir al historial de ganadores
                 var Historial = HistorialGanadores.CargarHistorialDesdeArchivo();
                 HistorialGanadores.CargarHistorial(Ganador, Historial);
-                Historial = HistorialGanadores.CargarHistorialDesdeArchivo();
                 
                 Console.WriteLine("Presione una tecla para ver el Historial de Ganadores...");
                 Console.ReadKey(intercept: true);
-                HistorialGanadores.MostrarListado(Historial);
+                HistorialGanadores.MostrarListado();
             }else
             {
                 
